@@ -54,10 +54,17 @@ namespace Colecao_Musica.Models
         public string Ano { get; set; }
 
         /// <summary>
-        /// Nome do compositor de uma musica
+        /// Nome do compositor de uma música
         /// </summary>
         //[StringLength(35, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public string Compositor { get; set; }
+
+
+        /// <summary>
+        /// Album em que está inserido a música
+        /// </summary>
+        public string AlbumSel { get; set; }
+
 
         //********************************************************************************
         //FK para Artistas

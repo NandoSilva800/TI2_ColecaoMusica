@@ -44,72 +44,72 @@ namespace Colecao_Musica.Data
             );
 
 
-           // // criar utilizadores
-           // var appUser = new IdentityUser { Id = "Gestor", Email = "Gestor@g.gg", EmailConfirmed = true, UserName = "gestor@g.gg", NormalizedEmail = "GESTOR@G.GG", NormalizedUserName = "GESTOR@G.GG", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser1 = new IdentityUser { Id = "Queen", Email = "queen@q.uk", EmailConfirmed = true, UserName = "queen@q.uk", NormalizedEmail = "QUEEN@Q.UK", NormalizedUserName = "QUEEN@Q.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser2 = new IdentityUser { Id = "PinkFloyd", Email = "pinkfloyd@pf.uk", EmailConfirmed = true, UserName = "pinkfloyd@pf.uk", NormalizedEmail = "PINKFLOYD@PF.UK", NormalizedUserName = "PINKFLOYD@PF.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser3 = new IdentityUser { Id = "Eagles", Email = "eagles@e.us", EmailConfirmed = true, UserName = "eagles@e.us", NormalizedEmail = "EAGLES@E.US", NormalizedUserName = "EAGLES@E.US", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser4 = new IdentityUser { Id = "DireStraits", Email = "direstraits@ds.uk", EmailConfirmed = true, UserName = "direstraits@ds.uk", NormalizedEmail = "DIRESTRAITS@DS.UK", NormalizedUserName = "DIRESTRAITS@DS.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser5 = new IdentityUser { Id = "LedZeppelin", Email = "ledzeppelin@lz.uk", EmailConfirmed = true, UserName = "ledzeppelin@lz.uk", NormalizedEmail = "LEDZEPPELIN@LZ.UK", NormalizedUserName = "LEDZEPPELIN@LZ.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser6 = new IdentityUser { Id = "ACDC", Email = "acdc@a.au", EmailConfirmed = true, UserName = "acdc@a.au", NormalizedEmail = "ACDC@A.AU", NormalizedUserName = "ACDC@A.AU", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
-           // var appUser7 = new IdentityUser { Id = "SimplyRed", Email = "simplyred@sr.uk", EmailConfirmed = true, UserName = "simplyred@sr.uk", NormalizedEmail = "SIMPLYRED@SR.UK", NormalizedUserName = "SIMPLYRED@SR.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // // criar utilizadores
+            // var appUser = new IdentityUser { Id = "Gestor", Email = "Gestor@g.gg", EmailConfirmed = true, UserName = "gestor@g.gg", NormalizedEmail = "GESTOR@G.GG", NormalizedUserName = "GESTOR@G.GG", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser1 = new IdentityUser { Id = "Queen", Email = "queen@q.uk", EmailConfirmed = true, UserName = "queen@q.uk", NormalizedEmail = "QUEEN@Q.UK", NormalizedUserName = "QUEEN@Q.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser2 = new IdentityUser { Id = "PinkFloyd", Email = "pinkfloyd@pf.uk", EmailConfirmed = true, UserName = "pinkfloyd@pf.uk", NormalizedEmail = "PINKFLOYD@PF.UK", NormalizedUserName = "PINKFLOYD@PF.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser3 = new IdentityUser { Id = "Eagles", Email = "eagles@e.us", EmailConfirmed = true, UserName = "eagles@e.us", NormalizedEmail = "EAGLES@E.US", NormalizedUserName = "EAGLES@E.US", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser4 = new IdentityUser { Id = "DireStraits", Email = "direstraits@ds.uk", EmailConfirmed = true, UserName = "direstraits@ds.uk", NormalizedEmail = "DIRESTRAITS@DS.UK", NormalizedUserName = "DIRESTRAITS@DS.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser5 = new IdentityUser { Id = "LedZeppelin", Email = "ledzeppelin@lz.uk", EmailConfirmed = true, UserName = "ledzeppelin@lz.uk", NormalizedEmail = "LEDZEPPELIN@LZ.UK", NormalizedUserName = "LEDZEPPELIN@LZ.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser6 = new IdentityUser { Id = "ACDC", Email = "acdc@a.au", EmailConfirmed = true, UserName = "acdc@a.au", NormalizedEmail = "ACDC@A.AU", NormalizedUserName = "ACDC@A.AU", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
+            // var appUser7 = new IdentityUser { Id = "SimplyRed", Email = "simplyred@sr.uk", EmailConfirmed = true, UserName = "simplyred@sr.uk", NormalizedEmail = "SIMPLYRED@SR.UK", NormalizedUserName = "SIMPLYRED@SR.UK", LockoutEnabled = true, LockoutEnd = DateTimeOffset.Now };
 
 
-           // //set user password
-           // PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
-           // appUser.PasswordHash = ph.HashPassword(appUser, "12345Fs#");
-           // appUser1.PasswordHash = ph.HashPassword(appUser1, "12345Fs#");
-           // appUser2.PasswordHash = ph.HashPassword(appUser2, "12345Fs#");
-           // appUser3.PasswordHash = ph.HashPassword(appUser3, "12345Fs#");
-           // appUser4.PasswordHash = ph.HashPassword(appUser4, "12345Fs#");
-           // appUser5.PasswordHash = ph.HashPassword(appUser5, "12345Fs#");
-           // appUser6.PasswordHash = ph.HashPassword(appUser6, "12345Fs#");
-           // appUser7.PasswordHash = ph.HashPassword(appUser7, "12345Fs#");
+            // //set user password
+            // PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
+            // appUser.PasswordHash = ph.HashPassword(appUser, "12345Fs#");
+            // appUser1.PasswordHash = ph.HashPassword(appUser1, "12345Fs#");
+            // appUser2.PasswordHash = ph.HashPassword(appUser2, "12345Fs#");
+            // appUser3.PasswordHash = ph.HashPassword(appUser3, "12345Fs#");
+            // appUser4.PasswordHash = ph.HashPassword(appUser4, "12345Fs#");
+            // appUser5.PasswordHash = ph.HashPassword(appUser5, "12345Fs#");
+            // appUser6.PasswordHash = ph.HashPassword(appUser6, "12345Fs#");
+            // appUser7.PasswordHash = ph.HashPassword(appUser7, "12345Fs#");
 
-           // //seed user
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser1);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser2);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser3);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser4);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser5);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser6);
-           // modelBuilder.Entity<IdentityUser>().HasData(appUser7);
+            // //seed user
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser1);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser2);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser3);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser4);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser5);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser6);
+            // modelBuilder.Entity<IdentityUser>().HasData(appUser7);
 
-           // //set user role 
-           // modelBuilder.Entity<IdentityUserRole<string>>().HasData(
-           //     new IdentityUserRole<string> { RoleId = "g", UserId = "Gestor" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "Queen" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "PinkFloyd" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "DireStraits" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "LedZeppelin" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "ACDC" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "Eagles" },
-           //     new IdentityUserRole<string> { RoleId = "a", UserId = "SimplyRed" }
-           // );
-           // //Adicionar artistas
-           // modelBuilder.Entity<Artistas>().HasData(
-           //   new Artistas { Id = 1, Nome = "Eagles", Nacionalidade = "USA", Url = "https://eagles.com/", UserNameId = "Eagles" },
-           //   new Artistas { Id = 8, Nome = "Queen", Nacionalidade = "UK", Url = "https://queen.com/", UserNameId = "Queen" },
-           //   new Artistas { Id = 3, Nome = "Pink Floyd", Nacionalidade = "UK", Url = "https://pinkfloyd.com/", UserNameId = "PinkFloyd" },
-           //   new Artistas { Id = 4, Nome = "Dire Straits", Nacionalidade = "UK", Url = "https://direstraits.com/", UserNameId = "DireStraits" },
-           //   new Artistas { Id = 5, Nome = "Led Zeppelin", Nacionalidade = "UK", Url = "https://ledzeppelin.com/", UserNameId = "LedZeppelin" },
-           //   new Artistas { Id = 6, Nome = "AC/DC", Nacionalidade = "AUS", Url = "https://acdc.com/", UserNameId = "ACDC" },
-           //   new Artistas { Id = 7, Nome = "Simply Red", Nacionalidade = "Uk", Url = "https://simplyred.com/", UserNameId = "SimplyRed" }
-           //);
+            // //set user role 
+            // modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+            //     new IdentityUserRole<string> { RoleId = "g", UserId = "Gestor" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "Queen" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "PinkFloyd" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "DireStraits" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "LedZeppelin" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "ACDC" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "Eagles" },
+            //     new IdentityUserRole<string> { RoleId = "a", UserId = "SimplyRed" }
+            // );
+            // //Adicionar artistas
+            // modelBuilder.Entity<Artistas>().HasData(
+            //   new Artistas { Id = 1, Nome = "Eagles", Nacionalidade = "USA", Url = "https://eagles.com/", UserNameId = "Eagles" },
+            //   new Artistas { Id = 8, Nome = "Queen", Nacionalidade = "UK", Url = "https://queen.com/", UserNameId = "Queen" },
+            //   new Artistas { Id = 3, Nome = "Pink Floyd", Nacionalidade = "UK", Url = "https://pinkfloyd.com/", UserNameId = "PinkFloyd" },
+            //   new Artistas { Id = 4, Nome = "Dire Straits", Nacionalidade = "UK", Url = "https://direstraits.com/", UserNameId = "DireStraits" },
+            //   new Artistas { Id = 5, Nome = "Led Zeppelin", Nacionalidade = "UK", Url = "https://ledzeppelin.com/", UserNameId = "LedZeppelin" },
+            //   new Artistas { Id = 6, Nome = "AC/DC", Nacionalidade = "AUS", Url = "https://acdc.com/", UserNameId = "ACDC" },
+            //   new Artistas { Id = 7, Nome = "Simply Red", Nacionalidade = "Uk", Url = "https://simplyred.com/", UserNameId = "SimplyRed" }
+            //);
 
 
-           //// Adicionar dados às tabelas da BD
-           // modelBuilder.Entity<Generos>().HasData(
-           //    new Generos { Id = 1, Designacao = "Rock" },
-           //    new Generos { Id = 2, Designacao = "Pop" },
-           //    new Generos { Id = 3, Designacao = "Dance" },
-           //    new Generos { Id = 4, Designacao = "Classica" },
-           //    new Generos { Id = 5, Designacao = "Fado" },
-           //    new Generos { Id = 6, Designacao = "Ópera" },
-           //    new Generos { Id = 7, Designacao = "Heavy Metal" },
-           //    new Generos { Id = 8, Designacao = "Jazz" }
-           // );
+            // Adicionar dados às tabelas da BD
+            modelBuilder.Entity<Generos>().HasData(
+               new Generos { Id = 1, Designacao = "Rock" },
+               new Generos { Id = 2, Designacao = "Pop" },
+               new Generos { Id = 3, Designacao = "Dance" },
+               new Generos { Id = 4, Designacao = "Classica" },
+               new Generos { Id = 5, Designacao = "Fado" },
+               new Generos { Id = 6, Designacao = "Ópera" },
+               new Generos { Id = 7, Designacao = "Heavy Metal" },
+               new Generos { Id = 8, Designacao = "Jazz" }
+            );
 
 
             ////Adicionar Albuns

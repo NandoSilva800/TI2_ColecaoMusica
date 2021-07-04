@@ -55,12 +55,12 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Músicas</label>
-                @* listar as musicas do artista, para serem inseridas num album *@
-                @foreach (Musicas item in ViewBag.listaMusicas)
+                @* listar os albuns do artista, para serem atribuidos a musica *@
+                @foreach (Albuns item in ViewBag.listaAlbuns)
                 {
 
-                    if (Model.ListaDeMusicas.Contains(item)) { selecionado = "checked"; }
-                    <br /> <input type="checkbox" value="@item.Id" name="Musica selecionada" @selecionado /> @item.Titulo selecionado= "";
+                    if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
+                    <br /> <input type="checkbox" value="@item.Id" name="Album selecionado" @selecionado /> @item.Titulo selecionado= "";
 }
             </div>
             <div class="form-group">

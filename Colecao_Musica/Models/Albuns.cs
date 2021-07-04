@@ -81,7 +81,7 @@ namespace Colecao_Musica.Models
         
         [ForeignKey(nameof(Genero))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto
         [Required(ErrorMessage = "Seleção obrigatória")]
-        [Display(Name = "Género")]
+        //[Display(Name = "Género")]
         public int GenerosFK { get; set; }      //FK para Generos np SGBD(SQL) 
         public Generos Genero { get; set; }     //FK para Generos no C#
 

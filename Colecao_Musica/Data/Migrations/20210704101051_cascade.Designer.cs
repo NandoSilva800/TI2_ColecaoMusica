@@ -4,14 +4,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210704101051_cascade")]
+    partial class cascade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,48 +121,6 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Designacao = "Rock"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Designacao = "Pop"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Designacao = "Dance"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Designacao = "Classica"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Designacao = "Fado"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Designacao = "Ópera"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Designacao = "Heavy Metal"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Designacao = "Jazz"
-                        });
                 });
 
             modelBuilder.Entity("Colecao_Musica.Models.Musicas", b =>
@@ -225,14 +185,14 @@ namespace Colecao_Musica.Data.Migrations
                         new
                         {
                             Id = "a",
-                            ConcurrencyStamp = "0f761397-65fe-4f56-aa14-f3025377ccc9",
+                            ConcurrencyStamp = "2d2383cf-5aea-4207-8d5d-fedfdf901c1a",
                             Name = "Artista",
                             NormalizedName = "ARTISTA"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "d44c2a6c-c3f0-46c7-b221-a1a40915d248",
+                            ConcurrencyStamp = "0c97c155-3e4b-4119-a75e-73fcbfd912a8",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         });
@@ -416,13 +376,13 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Colecao_Musica.Models.Albuns", null)
                         .WithMany()
                         .HasForeignKey("ListaDeAlbunsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Colecao_Musica.Models.Musicas", null)
                         .WithMany()
                         .HasForeignKey("ListaDeMusicasId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -431,13 +391,13 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Colecao_Musica.Models.Artistas", "Artista")
                         .WithMany()
                         .HasForeignKey("ArtistasFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Colecao_Musica.Models.Generos", "Genero")
                         .WithMany("ListaDeAlbuns")
                         .HasForeignKey("GenerosFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Artista");
@@ -450,7 +410,7 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Colecao_Musica.Models.Artistas", "Artista")
                         .WithMany("ListaDeMusicas")
                         .HasForeignKey("ArtistasFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Artista");
@@ -461,7 +421,7 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -470,7 +430,7 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -479,7 +439,7 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -488,13 +448,13 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -503,7 +463,7 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 

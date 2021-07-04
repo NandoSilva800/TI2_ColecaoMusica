@@ -32,12 +32,12 @@
                 <input asp-for="Compositor" class="form-control" />
                 <span asp-validation-for="Compositor" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
+            <div class="form-group">
                 <label class="control-label">Albuns</label>
                 @foreach (Albuns item in ViewBag.listaAlbuns)
                 {
             <br /> <input type="checkbox" value="@item.Id" name="Album selecionado" /> @item.Titulo            }
-            </div>*@
+            </div>
             @if (User.Identity.IsAuthenticated)
             {
                 <div class="form-group">

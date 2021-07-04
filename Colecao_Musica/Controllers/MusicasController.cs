@@ -95,11 +95,11 @@ namespace Colecao_Musica.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Titulo,Duracao,Ano,Compositor, ArtistasFK")] Musicas musica) {
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Duracao,Ano,Compositor, ArtistasFK")] Musicas musica) {
 
             //Atribui ao objeto 'musica' a lista de albuns do artista que está ligado
-            //musica.ArtistasFK = (await _context.Artistas
-                //.Where(m => m.UserNameId == _userManager.GetUserId(User)).FirstOrDefaultAsync()).Id;
+            musica.ArtistasFK = (await _context.Artistas
+                .Where(m => m.UserNameId == _userManager.GetUserId(User)).FirstOrDefaultAsync()).Id;
             
             if (ModelState.IsValid) {
 
@@ -133,7 +133,7 @@ namespace Colecao_Musica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Titulo,Duracao,Ano,Compositor,ArtistasFK")] Musicas musica) {
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Duracao,Ano,Compositor,ArtistasFK")] Musicas musica) {
             
             if (id != musica.Id) {
                 return NotFound();

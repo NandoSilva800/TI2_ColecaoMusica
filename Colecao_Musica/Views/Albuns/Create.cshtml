@@ -52,12 +52,12 @@
                 </select>
                 <span asp-validation-for="GenerosFK" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label class="control-label">Musicas</label>
-                @foreach (Musicas item in ViewBag.listaMusicas)
+                @foreach (Musicas item in ViewBag.ListaMusicas)
                 {
                     <br /> <input type="checkbox" value="@item.Id" name="Música selecionada" /> @item.Titulo }
-            </div>
+            </div>*@
             @if (User.Identity.IsAuthenticated)
             {
                 <div class="form-group">

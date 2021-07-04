@@ -35,22 +35,14 @@
                 <span asp-validation-for="Compositor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Artista" class="control-label"></label>
-                <select asp-for="ArtistasFK" class="form-control" asp-items="ViewBag.ArtistasFK">
-                    <option value="">Selecione um Artista, por favor.</option>
-                </select>
-                <span asp-validation-for="ArtistasFK" class="text-danger"></span>
-            </div>
-            <!--<div class="form-group">
                 <label class="control-label">Albuns</label>-->
                 @* listar os albuns, e confrontar essa lista com os albuns do artista em que a musica pode ser inserida *@
-                <!--@foreach (Albuns item in ViewBag.listaAlbuns)
-                {
+                @foreach (Albuns item in ViewBag.listaDeAlbuns) {
 
                     if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
-                    <br /> <input type="checkbox" value="@item.Id" name="Musica selecionada" @selecionado /> @item.Titulo selecionado = "";
-}
-            </div>-->
+                    <br /> <input type="checkbox" value="@item.Id" name="Album Selecionado" @selecionado /> @item.Titulo selecionado = "";
+                    }
+            </div>
             @if (User.Identity.IsAuthenticated)
             {
                 <div class="form-group">

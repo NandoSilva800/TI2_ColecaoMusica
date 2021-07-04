@@ -93,11 +93,12 @@ namespace Colecao_Musica.Controllers
 
         // GET: Albuns/Create
         public IActionResult Create() {
-
+            
+            
+          // ViewBag.ListaMusicas = _context.Musicas.OrderBy(m => m.Titulo).ToList();
+            
             //Prepara os dados do atributo 'género' para uma Dropdown
-            ViewBag.ListaDeMusicas = _context.Musicas.OrderBy(m => m.Titulo).ToList();
             ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao");
-
             return View();
         }
 
@@ -106,7 +107,12 @@ namespace Colecao_Musica.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( [Bind("Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK")]Albuns album, IFormFile albumCover, string[] MusicaSelecionada)  {
+        public async Task<IActionResult> Create( [Bind("Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK")]Albuns album, IFormFile albumCover, string[] MusicaSelecionada, Musicas Musica)  {
+
+            
+            //Atribui ao objeto 'musica' a lista de musicas do artista que está ligado
+            Musica.ArtistasFK = (await _context.Artistas.Where(m => m.UserNameId == _userManager.GetUserId(User)).FirstOrDefaultAsync()).Id;
+
 
             // <- ADIÇÃO DE músicas ao album ->
             // avalia se o array com a lista de musicas selecionadas associadas ao album está vazia ou não
@@ -114,8 +120,13 @@ namespace Colecao_Musica.Controllers
             {
                 //É gerada uma mensagem de erro
                 ModelState.AddModelError("", "É necessário selecionar pelo menos uma música.");
-                // gerar a lista Categorias que podem ser associadas à aula
-                ViewBag.ListaDeMusicas = _context.Musicas.OrderBy(m => m.Titulo).ToList();
+                // gerar a lista de musicas que podem ser associadas à aula
+                ViewBag.musica = _context.Musicas.OrderBy(m => m.Titulo).ToList();
+
+
+                //ViewBag.listaMusicas = _context.Musicas.OrderBy(m => m.Titulo).ToList();
+
+                //ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao");
                 // devolver controlo à View
                 return View(album);
             }
@@ -125,7 +136,7 @@ namespace Colecao_Musica.Controllers
             // Para cada objeto escolhido..
             foreach (string item in MusicaSelecionada)
             {
-                //procurar a categoria
+                //procurar a musica
                 Musicas musica = _context.Musicas.Find(Convert.ToInt32(item));
                 // adicionar a Categoria à lista
                 ListaMusicasSelecionadas.Add(musica);
@@ -146,7 +157,7 @@ namespace Colecao_Musica.Controllers
                 // devolver o controlo à View
                 // prepara os dados a serem enviados para a View
                 // para a Dropdown
-                ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+                //ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
 
                 return View(album);
             }
@@ -177,7 +188,7 @@ namespace Colecao_Musica.Controllers
                 // devolver o controlo à View
                 // prepara os dados a serem enviados para a View
                 // para a Dropdown
-                ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+                //ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
                 return View();
             }
 
@@ -201,7 +212,7 @@ namespace Colecao_Musica.Controllers
                 using var stream = new FileStream(caminhoAteAoFichFoto, FileMode.Create);
                 await albumCover.CopyToAsync(stream);
 
-
+                ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao");
                 // redireciona a execução do código para a método Index    
                 return RedirectToAction(nameof(Index));
             }

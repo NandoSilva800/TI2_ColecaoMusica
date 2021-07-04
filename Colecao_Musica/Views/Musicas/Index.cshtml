@@ -25,9 +25,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Compositor)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Artista)
-            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.AlbumSel)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -47,9 +47,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Compositor)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Artista)
-            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumSel)
+            </td>
             @if (User.Identity.IsAuthenticated)
             {
                 <td>
