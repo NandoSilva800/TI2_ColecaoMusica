@@ -1,0 +1,69 @@
+﻿@model Colecao_Musica.Models.Musicas
+
+@{
+    ViewData["Title"] = "Edit";
+    string selecionado = "";
+}
+
+<h1>Editar</h1>
+
+<h4>Musicas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duracao" class="control-label"></label>
+                <input asp-for="Duracao" class="form-control" />
+                <span asp-validation-for="Duracao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" />
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Compositor" class="control-label"></label>
+                <input asp-for="Compositor" class="form-control" />
+                <span asp-validation-for="Compositor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artista" class="control-label"></label>
+                <select asp-for="ArtistasFK" class="form-control" asp-items="ViewBag.ArtistasFK">
+                    <option value="">Selecione um Artista, por favor.</option>
+                </select>
+                <span asp-validation-for="ArtistasFK" class="text-danger"></span>
+            </div>
+            <!--<div class="form-group">
+                <label class="control-label">Albuns</label>-->
+                @* listar os albuns, e confrontar essa lista com os albuns do artista em que a musica pode ser inserida *@
+                <!--@foreach (Albuns item in ViewBag.listaAlbuns)
+                {
+
+                    if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
+                    <br /> <input type="checkbox" value="@item.Id" name="Musica selecionada" @selecionado /> @item.Titulo selecionado = "";
+}
+            </div>-->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>}
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

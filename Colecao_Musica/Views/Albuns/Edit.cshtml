@@ -1,0 +1,79 @@
+﻿@model Colecao_Musica.Models.Albuns
+
+@{
+    ViewData["Title"] = "Edit";
+    string selecionado = ""; 
+}
+
+<h1>Editar</h1>
+
+<h4>Albuns</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ArtistasFK" />
+            <input type="hidden" asp-for="Cover" />
+
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duracao" class="control-label"></label>
+                <input asp-for="Duracao" class="form-control" />
+                <span asp-validation-for="Duracao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NrFaixas" class="control-label"></label>
+                <input asp-for="NrFaixas" class="form-control" />
+                <span asp-validation-for="NrFaixas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" />
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Editora" class="control-label"></label>
+                <input asp-for="Editora" class="form-control" />
+                <span asp-validation-for="Editora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cover" class="control-label"></label>
+                <input type="file" name="fotoAlbum" class="form-control" accept=".png,.jpg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Genero" class="control-label"></label>
+                <select asp-for="GenerosFK" class="form-control" asp-items="ViewBag.GenerosFK">
+                    <option value="">Selecione um genero, por favor.</option>
+                </select>
+                <span asp-validation-for="GenerosFK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Músicas</label>
+                @* listar as musicas do artista, para serem inseridas num album *@
+                @foreach (Musicas item in ViewBag.listaMusicas)
+                {
+
+                    if (Model.ListaDeMusicas.Contains(item)) { selecionado = "checked"; }
+                    <br /> <input type="checkbox" value="@item.Id" name="Musica selecionada" @selecionado /> @item.Titulo selecionado= "";
+}
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

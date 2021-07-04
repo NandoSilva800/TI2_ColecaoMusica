@@ -1,0 +1,68 @@
+﻿@model Colecao_Musica.Models.Albuns
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Apagar</h1>
+
+<h3>Tem a certeza que quer apagar este album?</h3>
+}
+<div>
+    <h4>Albuns</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Duracao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Duracao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NrFaixas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NrFaixas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Editora)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Editora)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cover)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/coverAlbum/@Html.DisplayFor(model => model.Cover)" width="100"/>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genero.Designacao)
+        </dd>
+    </dl>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Remover" class="btn btn-danger" /> |
+            <a asp-action="Index">Voltar</a>
+        </form>
+    }
+</div>
+

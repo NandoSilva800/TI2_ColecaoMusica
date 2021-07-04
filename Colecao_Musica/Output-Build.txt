@@ -1,0 +1,7 @@
+﻿Build started...
+1>------ Build started: Project: Colecao_Musica, Configuration: Debug Any CPU ------
+1>C:\Users\Nando\source\repos\TI2_ColecaoMusica\Colecao_Musica\Controllers\AlbunsController.cs(270,21,270,27): warning CS0219: The variable 'hasgdj' is assigned but its value is never used
+1>Colecao_Musica -> C:\Users\Nando\source\repos\TI2_ColecaoMusica\Colecao_Musica\bin\Debug\net5.0\Colecao_Musica.dll
+1>Colecao_Musica -> C:\Users\Nando\source\repos\TI2_ColecaoMusica\Colecao_Musica\bin\Debug\net5.0\Colecao_Musica.Views.dll
+1>Done building project "Colecao_Musica.csproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

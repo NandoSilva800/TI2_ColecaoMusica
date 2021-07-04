@@ -4,14 +4,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210703202403_roles")]
+    partial class roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,48 +128,6 @@ namespace Colecao_Musica.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Designacao = "Rock"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Designacao = "Pop"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Designacao = "Dance"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Designacao = "Classica"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Designacao = "Fado"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Designacao = "Ópera"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Designacao = "Heavy Metal"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Designacao = "Jazz"
-                        });
                 });
 
             modelBuilder.Entity("Colecao_Musica.Models.Musicas", b =>
@@ -236,14 +196,14 @@ namespace Colecao_Musica.Data.Migrations
                         new
                         {
                             Id = "a",
-                            ConcurrencyStamp = "f2c4ff91-cbfa-4e38-8e22-65d3dfb15768",
+                            ConcurrencyStamp = "289f5b7f-6c77-455a-a45c-6986d0e99d9d",
                             Name = "Artista",
                             NormalizedName = "ARTISTA"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "c0d068ef-d4c7-43a5-b369-defb3384aa57",
+                            ConcurrencyStamp = "fcae10c4-325e-4a83-8fcb-bf9d7a2bf489",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         });

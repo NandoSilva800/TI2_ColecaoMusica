@@ -1,0 +1,68 @@
+﻿@model Colecao_Musica.Models.Albuns
+
+@{
+    ViewData["Title"] = "Details";
+    string selecionado = "";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Albuns</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Duracao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Duracao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NrFaixas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NrFaixas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Editora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Editora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cover)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cover)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genero.Designacao)
+        </dd>
+        <dd>
+            @* listar as categorias, e confrontar essa lista com as categorias a que a lição está associada *@
+            @foreach (Musicas item in ViewBag.listaMusicas) {
+                if (Model.ListaDeMusicas.Contains(item)) { selecionado = "checked"; }
+                <br /> <input type="checkbox" value="@item.Id" name="MusicaSelecionada" @selecionado /> @item.Titulo selecionado = "";
+                }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>

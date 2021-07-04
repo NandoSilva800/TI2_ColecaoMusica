@@ -1,0 +1,53 @@
+﻿@model Colecao_Musica.Models.Musicas
+
+@{
+    ViewData["Title"] = "Details";
+    string selecionado = "";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Musicas</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Duracao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Duracao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Compositor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Compositor)
+        </dd>
+        <dd>
+            @* listar os albuns, e confrontar essa lista com os albuns do artista a que a musica está inserida *@
+            @foreach (Albuns item in ViewBag.listaAlbuns) {
+                if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
+                <br /> <input type="checkbox" value="@item.Id" name="Album selecionado" @selecionado /> @item.Titulo selecionado = "";
+                }
+        </dd>
+    </dl>
+</div>
+@if (User.Identity.IsAuthenticated)
+{ 
+<div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index">Voltar</a>
+</div>
+}
