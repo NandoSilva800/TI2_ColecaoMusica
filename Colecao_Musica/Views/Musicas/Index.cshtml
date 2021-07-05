@@ -24,11 +24,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Compositor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AlbumSel)
-            </th>
-            <th></th>
+            </th>         
         </tr>
     </thead>
     <tbody>
@@ -47,17 +43,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Compositor)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AlbumSel)
-            </td>
-            @if (User.Identity.IsAuthenticated)
-            {
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
                     <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
                     <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
                 </td>
-}
+
         </tr>
         }
     </tbody>

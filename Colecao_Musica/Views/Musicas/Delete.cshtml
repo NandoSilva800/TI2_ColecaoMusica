@@ -35,6 +35,20 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Compositor)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AlbunSel)
+        </dt>
+        <dd class="col-sm-10">
+            @* listar as categorias, e confrontar essa lista com as categorias a que a lição está associada *@
+            @foreach (Albuns item in ViewBag.listaDeAlbuns)
+            {
+                if (Model.ListaDeAlbuns.Contains(item))
+                {
+                    @Html.DisplayFor(model => model.AlbunSel) @item.Titulo
+                    <br />
+                }
+            }
+        </dd>
     </dl>
     @if (User.Identity.IsAuthenticated)
     {

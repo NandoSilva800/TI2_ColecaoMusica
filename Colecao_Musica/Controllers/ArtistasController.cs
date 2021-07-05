@@ -37,8 +37,8 @@ namespace Colecao_Musica.Controllers {
                      _userManager = userManager;
             }
 
-            // GET: Artistas
-            public async Task<IActionResult> Index(){
+        // GET: Artistas
+        public async Task<IActionResult> Index(){
                 return View(await _context.Artistas.ToListAsync());
             }
 
@@ -155,9 +155,6 @@ namespace Colecao_Musica.Controllers {
         //        return view();
         //    }
 
-        //    // post: artistas/create
-        //    // to protect from overposting attacks, enable the specific properties you want to bind to.
-        //    // for more details, see http://go.microsoft.com/fwlink/?linkid=317598.
         //    [httppost]
         //    [validateantiforgerytoken]
         //    public async task<iactionresult> create([bind("nome,nacionalidade,url")] artistas artistas)

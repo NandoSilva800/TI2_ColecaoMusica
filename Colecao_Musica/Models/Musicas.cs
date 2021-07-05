@@ -63,7 +63,8 @@ namespace Colecao_Musica.Models
         /// <summary>
         /// Album em que está inserido a música
         /// </summary>
-        public string AlbumSel { get; set; }
+        [Display(Name = "Albuns")]
+        public string AlbunSel { get; set; }
 
 
         //********************************************************************************

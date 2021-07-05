@@ -35,19 +35,20 @@
                 <span asp-validation-for="Compositor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Albuns</label>-->
+                <label class="control-label">Albuns</label>
                 @* listar os albuns, e confrontar essa lista com os albuns do artista em que a musica pode ser inserida *@
-                @foreach (Albuns item in ViewBag.listaDeAlbuns) {
+                @if (ViewBag.listaDeAlbuns != null) {
+                    foreach (Albuns item in ViewBag.listaDeAlbuns) {
 
-                    if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
-                    <br /> <input type="checkbox" value="@item.Id" name="Album Selecionado" @selecionado /> @item.Titulo selecionado = "";
+                        if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
+                        <br /> <input type="checkbox" value="@item.Id" name="albumSelecionado" @selecionado /> @item.Titulo
+                            selecionado = "";
                     }
+                 }
             </div>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <div class="form-group">
-                    <input type="submit" value="Guardar" class="btn btn-primary" />
-                </div>}
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>

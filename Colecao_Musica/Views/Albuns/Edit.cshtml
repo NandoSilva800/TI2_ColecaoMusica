@@ -54,16 +54,6 @@
                 <span asp-validation-for="GenerosFK" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Músicas</label>
-                @* listar os albuns do artista, para serem atribuidos a musica *@
-                @foreach (Albuns item in ViewBag.listaAlbuns)
-                {
-
-                    if (Model.ListaDeAlbuns.Contains(item)) { selecionado = "checked"; }
-                    <br /> <input type="checkbox" value="@item.Id" name="Album selecionado" @selecionado /> @item.Titulo selecionado= "";
-}
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>

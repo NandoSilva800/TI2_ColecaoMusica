@@ -34,15 +34,15 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Albuns</label>
-                @foreach (Albuns item in ViewBag.listaAlbuns)
-                {
-            <br /> <input type="checkbox" value="@item.Id" name="Album selecionado" /> @item.Titulo            }
+                @if (ViewBag.ListaAlbuns != null) {
+                    foreach (Albuns item in ViewBag.ListaAlbuns) {
+            <br /> <input type="checkbox" value="@item.Id" name="AlbumSelecionado" /> @item.Titulo 
+                    }
+                }
             </div>
-            @if (User.Identity.IsAuthenticated)
-            {
                 <div class="form-group">
                     <input type="submit" value="Adicionar" class="btn btn-primary" />
-                </div>}
+                </div>
         </form>
     </div>
 </div>

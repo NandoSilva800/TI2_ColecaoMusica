@@ -4,14 +4,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210705004103_AlbunsChecklists")]
+    partial class AlbunsChecklists
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,7 +172,7 @@ namespace Colecao_Musica.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AlbunSel")
+                    b.Property<string>("Albuns")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ano")
@@ -228,14 +230,14 @@ namespace Colecao_Musica.Data.Migrations
                         new
                         {
                             Id = "a",
-                            ConcurrencyStamp = "4f3aca14-908f-4e91-af98-9e009f17caee",
+                            ConcurrencyStamp = "666b9606-5f5d-451f-8c01-d6a355171c0c",
                             Name = "Artista",
                             NormalizedName = "ARTISTA"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "1bbd0252-8403-4b64-8ab9-9adf1e775b33",
+                            ConcurrencyStamp = "4de656eb-914c-4f3c-b67b-0c381a79d2ef",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         });

@@ -4,14 +4,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210704154550_newAtribMusModel")]
+    partial class newAtribMusModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,7 +172,7 @@ namespace Colecao_Musica.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AlbunSel")
+                    b.Property<string>("AlbumSel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ano")
@@ -228,14 +230,14 @@ namespace Colecao_Musica.Data.Migrations
                         new
                         {
                             Id = "a",
-                            ConcurrencyStamp = "4f3aca14-908f-4e91-af98-9e009f17caee",
+                            ConcurrencyStamp = "b81edbd2-8efd-4d19-9280-2149d3a29442",
                             Name = "Artista",
                             NormalizedName = "ARTISTA"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "1bbd0252-8403-4b64-8ab9-9adf1e775b33",
+                            ConcurrencyStamp = "ce0ba7a2-8570-41f5-bd3a-18d9aaccfdd3",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         });
