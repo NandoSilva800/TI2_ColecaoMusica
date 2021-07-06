@@ -4,14 +4,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210706214201_APIinitial")]
+    partial class APIinitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
