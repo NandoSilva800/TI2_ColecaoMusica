@@ -32,7 +32,7 @@ namespace Colecao_Musica.Models
         /// Titulo de uma musica
         /// </summary>
         [Required(ErrorMessage ="Preenchimento obrigatório")]
-        //[StringLength(50, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
+        [StringLength(50, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         [Display(Name = "Título")]
         public string Titulo { get; set; }
 
@@ -40,8 +40,8 @@ namespace Colecao_Musica.Models
         /// Duração de uma musica
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório no formato 00 minutos")]
-       // [RegularExpression("[0-9]{1,2}", ErrorMessage = "Insira a duração do album em minutos")]
-       // [StringLength(2, MinimumLength = 1)]
+        [RegularExpression("[0-9]{1,2}", ErrorMessage = "Insira a duração do album em minutos")]
+        [StringLength(2, MinimumLength = 1)]
         [Display(Name = "Duração minutos")]
         public string Duracao { get; set; }
 
@@ -49,14 +49,14 @@ namespace Colecao_Musica.Models
         /// Ano em que foi editada uma musica
         /// </summary>
         [Required(ErrorMessage = "Preenchimento obrigatório")]
-        //[RegularExpression("[0-9]{4}", ErrorMessage = "Insira o ano do album")]
-        //[StringLength(4, MinimumLength = 4, ErrorMessage = "O {0} deve conter {1} caracteres.")]
+        [RegularExpression("[0-9]{4}", ErrorMessage = "Insira o ano do album")]
+        [StringLength(4, MinimumLength = 4, ErrorMessage = "O {0} deve conter {1} caracteres.")]
         public string Ano { get; set; }
 
         /// <summary>
         /// Nome do compositor de uma música
         /// </summary>
-        //[StringLength(35, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
+        [StringLength(35, ErrorMessage = "O {0} não deve ter mais que {1} caracteres.")]
         public string Compositor { get; set; }
 
 
