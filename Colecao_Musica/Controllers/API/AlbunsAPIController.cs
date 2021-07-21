@@ -81,14 +81,14 @@ namespace Colecao_Musica.Controllers.API
         // PUT: api/AlbunsAPI/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAlbuns(int id, Albuns albuns)
+        public async Task<IActionResult> PutAlbuns(int id, Albuns album)
         {
-            if (id != albuns.Id)
+            if (id != album.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(albuns).State = EntityState.Modified;
+            _context.Entry(album).State = EntityState.Modified;
 
             try
             {
@@ -112,17 +112,17 @@ namespace Colecao_Musica.Controllers.API
         // POST: api/AlbunsAPI
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Albuns>> PostAlbuns(Albuns albuns)
+        public async Task<ActionResult<Albuns>> PostAlbuns(Albuns album)
         {
 
             // esta instrução é apenas usada para não se criar uma exceção no código
             // deverá ser apagada quando se concretizar o trabalho real
-            albuns.Cover = "";
+            album.Cover = "";
 
-            _context.Albuns.Add(albuns);
+            _context.Albuns.Add(album);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlbuns", new { id = albuns.Id }, albuns);
+            return CreatedAtAction("GetAlbuns", new { id = album.Id }, album);
         }
 
 
@@ -131,8 +131,8 @@ namespace Colecao_Musica.Controllers.API
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
 
-            var albuns = await _context.Albuns.FindAsync(id);
-            _context.Albuns.Remove(albuns);
+            var album = await _context.Albuns.FindAsync(id);
+            _context.Albuns.Remove(album);
             await _context.SaveChangesAsync();
 
             /*

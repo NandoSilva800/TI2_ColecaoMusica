@@ -14,7 +14,7 @@
         <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="ArtistasFK" />
+            <input type="hidden" asp-for="ArtistaFK" />
             <input type="hidden" asp-for="Cover" />
 
             <div class="form-group">
@@ -48,10 +48,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Genero" class="control-label"></label>
-                <select asp-for="GenerosFK" class="form-control" asp-items="ViewBag.GenerosFK">
+                <select asp-for="GeneroFK" class="form-control" asp-items="ViewBag.GeneroFK">
                     <option value="">Selecione um genero, por favor.</option>
                 </select>
-                <span asp-validation-for="GenerosFK" class="text-danger"></span>
+                <span asp-validation-for="GeneroFK" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-primary" />

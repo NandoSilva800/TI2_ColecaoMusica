@@ -4,14 +4,16 @@ using Colecao_Musica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Colecao_Musica.Data.Migrations
 {
     [DbContext(typeof(Colecao_MusicaBD))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210719101507_reacttest")]
+    partial class reacttest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +185,7 @@ namespace Colecao_Musica.Data.Migrations
                         .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
-                    b.Property<int>("ArtistaFK")
+                    b.Property<int>("ArtistasFK")
                         .HasColumnType("int");
 
                     b.Property<string>("Compositor")
@@ -202,7 +204,7 @@ namespace Colecao_Musica.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistaFK");
+                    b.HasIndex("ArtistasFK");
 
                     b.ToTable("Musicas");
                 });
@@ -237,14 +239,14 @@ namespace Colecao_Musica.Data.Migrations
                         new
                         {
                             Id = "a",
-                            ConcurrencyStamp = "2abed0dd-e787-4e5d-99a5-5ee0c2e6c4a3",
+                            ConcurrencyStamp = "0674cfa0-4279-4cc6-a6f5-320728a7e7cd",
                             Name = "Artista",
                             NormalizedName = "ARTISTA"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "3a7d62de-eaff-40fc-8211-75aab9a3fa58",
+                            ConcurrencyStamp = "f2bd7d28-8fab-421b-ac93-e5617d831853",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         });
@@ -461,7 +463,7 @@ namespace Colecao_Musica.Data.Migrations
                 {
                     b.HasOne("Colecao_Musica.Models.Artistas", "Artista")
                         .WithMany("ListaDeMusicas")
-                        .HasForeignKey("ArtistaFK")
+                        .HasForeignKey("ArtistasFK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

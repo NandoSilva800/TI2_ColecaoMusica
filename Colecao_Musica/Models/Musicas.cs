@@ -72,7 +72,7 @@ namespace Colecao_Musica.Models
         //********************************************************************************
         //Para facilitar o programador a criar os controlers as linhas seguintes
         [ForeignKey(nameof(Artista))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
-        public int ArtistasFK { get; set; }      //FK para Artistas np SGBD(SQL)
+        public int ArtistaFK { get; set; }      //FK para Artistas np SGBD(SQL)
         public Artistas Artista { get; set; }     //FK para Artistas no C#
         //********************************************************************************
 

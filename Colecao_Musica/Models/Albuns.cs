@@ -82,7 +82,7 @@ namespace Colecao_Musica.Models
         [ForeignKey(nameof(Genero))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto
         [Required(ErrorMessage = "Seleção obrigatória")]
         [Display(Name = "Género")]
-        public int GenerosFK { get; set; }      //FK para Generos np SGBD(SQL) 
+        public int GeneroFK { get; set; }      //FK para Generos np SGBD(SQL) 
         public Generos Genero { get; set; }     //FK para Generos no C#
 
 
@@ -92,14 +92,14 @@ namespace Colecao_Musica.Models
         //Para facilitar o programador a criar os controlers as linhas seguintes
         [ForeignKey(nameof(Artista))] //Anotador para o Entity Framework (com nome do objeto em vez do objeto)
         [Required(ErrorMessage = "Seleção obrigatória")]
-        public int ArtistasFK { get; set; }      //FK para Artistas np SGBD(SQL)
+        public int ArtistaFK { get; set; }      //FK para Artistas np SGBD(SQL)
         public Artistas Artista { get; set; }    //FK para Artistas no C#
 
 
         //**********************************************************************
         //Criar a lista de Musicas a que um Album está associado
         //**********************************************************************
-        [Required(ErrorMessage = "É obrigatório escolher uma música.")]
+        //[Required(ErrorMessage = "É obrigatório escolher uma música.")]
         public ICollection<Musicas> ListaDeMusicas { get; set; }
     }
 }//Fim da classe Albuns

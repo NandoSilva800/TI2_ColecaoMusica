@@ -12,9 +12,9 @@ namespace Colecao_Musica.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    
-    
-    
+
+
+
     public class ArtistasAPIController : ControllerBase
     {
         private readonly Colecao_MusicaBD _context;
@@ -44,7 +44,7 @@ namespace Colecao_Musica.Controllers.API
             return listaArtistas;
         }
 
-      
+
 
         // GET: api/ArtistasAPI/5
         [HttpGet("{id}")]

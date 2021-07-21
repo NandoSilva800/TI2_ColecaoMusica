@@ -59,7 +59,7 @@ namespace Colecao_Musica.Controllers {
 
             //Quais os albuns do artista que se autenticou
             var listaAlbuns = await (from a in _context.Albuns
-                                     join r in _context.Artistas on a.ArtistasFK equals r.Id
+                                     join r in _context.Artistas on a.ArtistaFK equals r.Id
                                      where r.UserNameId == _userManager.GetUserId(User)
                                      select a)
                                     .OrderBy(a => a.Titulo)
@@ -98,7 +98,7 @@ namespace Colecao_Musica.Controllers {
         public IActionResult Create() {
 
             //Prepara os dados do atributo 'género' para uma Dropdown
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao");
+            ViewData["GeneroFK"] = new SelectList(_context.Generos, "Id", "Designacao");
             return View();
         }
 
@@ -108,7 +108,7 @@ namespace Colecao_Musica.Controllers {
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Artista")]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK")] Albuns album, IFormFile albumCover, string[] MusicaSelecionada, Musicas Musica) {
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GeneroFK")] Albuns album, IFormFile albumCover, string[] MusicaSelecionada, Musicas Musica) {
 
             if (albumCover == null) {
                 // se aqui entro, não há cover
@@ -132,7 +132,7 @@ namespace Colecao_Musica.Controllers {
                 string nomeCover = "";
                 Guid g;
                 g = Guid.NewGuid();
-                nomeCover = album.ArtistasFK + "_" + g.ToString();
+                nomeCover = album.ArtistaFK + "_" + g.ToString();
                 string extensaoCover = Path.GetExtension(albumCover.FileName).ToLower();
                 nomeCover = nomeCover + extensaoCover;
 
@@ -146,14 +146,14 @@ namespace Colecao_Musica.Controllers {
 
 
                 // prepara os dados a serem enviados para a View para a Dropdown
-                ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+                ViewData["GeneroFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GeneroFK);
                 return View();
             }
 
 
 
             //Atribui ao objeto 'album' a lista de albuns do artista que está ligado
-            album.ArtistasFK = (await _context.Artistas
+            album.ArtistaFK = (await _context.Artistas
                 .Where(a => a.UserNameId == _userManager.GetUserId(User)).FirstOrDefaultAsync()).Id;
 
 
@@ -170,14 +170,14 @@ namespace Colecao_Musica.Controllers {
                 using var stream = new FileStream(caminhoAteAoFichCover, FileMode.Create);
                 await albumCover.CopyToAsync(stream);
 
-                ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao");
+                ViewData["GeneroFK"] = new SelectList(_context.Generos, "Id", "Designacao");
                 // redireciona a execução do código para a método Index    
                 return RedirectToAction(nameof(Index));
             }
 
 
 
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+            ViewData["GeneroFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GeneroFK);
 
             return View(album);
         }
@@ -197,7 +197,7 @@ namespace Colecao_Musica.Controllers {
                 return NotFound();
             }
 
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+            ViewData["GeneroFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GeneroFK);
 
             return View(album);
         }
@@ -207,7 +207,7 @@ namespace Colecao_Musica.Controllers {
         // Para proteger os dados dos atributos de ataques - Bind
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GenerosFK,ArtistasFK")] Albuns album, IFormFile albumCover) {
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Duracao,NrFaixas,Ano,Editora,Cover,GeneroFK,ArtistaFK")] Albuns album, IFormFile albumCover) {
 
             if (id != album.Id) {
                 return NotFound();
@@ -215,7 +215,7 @@ namespace Colecao_Musica.Controllers {
 
 
             //Atribui ao objeto 'album' a lista de albuns do artista que está ligado
-            album.ArtistasFK = (await _context.Artistas
+            album.ArtistaFK = (await _context.Artistas
                 .Where(a => a.UserNameId == _userManager
                 .GetUserId(User))
                 .FirstOrDefaultAsync()).Id;
@@ -257,7 +257,7 @@ namespace Colecao_Musica.Controllers {
             }
 
 
-            ViewData["GenerosFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GenerosFK);
+            ViewData["GeneroFK"] = new SelectList(_context.Generos, "Id", "Designacao", album.GeneroFK);
 
             return View(album);
 
