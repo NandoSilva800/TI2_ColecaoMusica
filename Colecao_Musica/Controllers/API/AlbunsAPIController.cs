@@ -112,7 +112,7 @@ namespace Colecao_Musica.Controllers.API
         // POST: api/AlbunsAPI
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Albuns>> PostAlbuns(Albuns album)
+        public async Task<ActionResult<Albuns>> PostAlbuns([FromForm]Albuns album)
         {
 
             // esta instrução é apenas usada para não se criar uma exceção no código
